@@ -1,0 +1,4 @@
+package Detectors
+
+class FloatingPointDetector {
+}
