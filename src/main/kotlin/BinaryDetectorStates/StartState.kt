@@ -1,0 +1,4 @@
+package BinaryDetectorStates
+
+class StartState {
+}

@@ -1,0 +1,4 @@
+package EmailDetectorStates
+
+class PeriodState {
+}

@@ -1,0 +1,4 @@
+package FloatingPointDetectorStates
+
+class StartZeroState {
+}

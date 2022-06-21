@@ -1,0 +1,4 @@
+package PasswordDetectorStates
+
+class CharState {
+}
