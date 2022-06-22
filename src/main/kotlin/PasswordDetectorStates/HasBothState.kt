@@ -1,17 +1,17 @@
 package PasswordDetectorStates
 
-import Detectors.IntegerDetector
+import Detector
 import State
 
-class HasBothState (integerDetector: IntegerDetector) : State(integerDetector) {
+class HasBothState (detector: Detector) : State(detector) {
     override val isAccepting: Boolean
         get() = true
 
     override fun consumeInput(string: String) {
         if (string in "!@#$%&*") {
-            integerDetector.state = CurrentSpecialState(integerDetector)
+            detector.state = CurrentSpecialState(detector)
         }else{
-            integerDetector.state = HasBothState(integerDetector)
+            detector.state = HasBothState(detector)
         }
     }
 }

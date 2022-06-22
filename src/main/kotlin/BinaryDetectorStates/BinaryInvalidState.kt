@@ -1,10 +1,9 @@
 package BinaryDetectorStates
 
-import Detectors.BinaryDetector
-import Detectors.IntegerDetector
+import Detector
 import State
 
-class InvalidState(binaryDetector: BinaryDetector) : State(binaryDetector) {
+class BinaryInvalidState(detector: Detector) : State(detector) {
     override val isAccepting: Boolean
         get() = false
 

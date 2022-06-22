@@ -1,18 +1,18 @@
 package EmailDetectorStates
 
-import Detectors.IntegerDetector
-import IntegerDetectorStates.InvalidState
+import Detector
+import IntegerDetectorStates.IntegerInvalidState
 import State
 
-class AtState (integerDetector: IntegerDetector) : State(integerDetector) {
+class AtState (detector: Detector) : State(detector) {
     override val isAccepting: Boolean
         get() = false
 
     override fun consumeInput(string: String) {
         if (string in ".@ "){
-            integerDetector.state = InvalidState(integerDetector)
+            detector.state = IntegerInvalidState(detector)
         }else{
-            integerDetector.state = PartTwoState(integerDetector)
+            detector.state = PartTwoState(detector)
         }
     }
 }

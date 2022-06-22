@@ -1,16 +1,16 @@
-package FloatingPointDetectorStates
+package BinaryDetectorStates
 
 import Detector
 import IntegerDetectorStates.IntegerInvalidState
 import State
 
-class ValidWithPeriodState (detector: Detector) : State(detector) {
+class BinaryStartState(detector: Detector) : State(detector) {
     override val isAccepting: Boolean
-        get() = true
+        get() = false
 
     override fun consumeInput(string: String) {
-        if (string in "0123456789") {
-            detector.state = ValidWithPeriodState(detector)
+        if (string == "1"){
+            detector.state = OneState(detector)
         }else{
             detector.state = IntegerInvalidState(detector)
         }

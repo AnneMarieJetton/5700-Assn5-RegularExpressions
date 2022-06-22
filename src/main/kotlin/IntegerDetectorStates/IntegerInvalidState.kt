@@ -1,9 +1,9 @@
-package PasswordDetectorStates
+package IntegerDetectorStates
 
-import Detectors.IntegerDetector
+import Detector
 import State
 
-class InvalidState(integerDetector: IntegerDetector) : State(integerDetector) {
+class IntegerInvalidState(detector: Detector) : State(detector) {
     override val isAccepting: Boolean
         get() = false
 

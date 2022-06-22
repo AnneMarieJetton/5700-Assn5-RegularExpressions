@@ -1,6 +1,4 @@
-import Detectors.IntegerDetector
-
-abstract class State (val integerDetector: IntegerDetector){
+abstract class State (val detector: Detector){
 
     abstract val isAccepting: Boolean
 

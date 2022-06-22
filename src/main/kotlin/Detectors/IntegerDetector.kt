@@ -1,26 +1,10 @@
 package Detectors
 
-import IntegerDetectorStates.StartState
-import State
+import Detector
 
-class IntegerDetector {
-    var state: State = StartState(this)
+class IntegerDetector(): Detector() {
 
-    fun detectInt(input: String): Boolean {
-        val chars = input
-            .trim()
-            .split("")
-            .drop(1)
-            .dropLast(1)
-            .toMutableList()
-
-        for(char in chars){
-            state.consumeInput(char)
-        }
-        val isAccepting = state.isAccepting
-        state = StartState(this)
-
-        return isAccepting
-
+    override fun DetectorType(): String {
+        return "Binary"
     }
 }

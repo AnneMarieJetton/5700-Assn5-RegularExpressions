@@ -1,19 +1,19 @@
 package FloatingPointDetectorStates
 
-import Detectors.IntegerDetector
+import Detector
 import EmailDetectorStates.PeriodState
-import IntegerDetectorStates.InvalidState
+import IntegerDetectorStates.IntegerInvalidState
 import State
 
-class StartZeroState (integerDetector: IntegerDetector) : State(integerDetector) {
+class StartZeroState (detector: Detector) : State(detector) {
     override val isAccepting: Boolean
         get() = false
 
     override fun consumeInput(string: String) {
         if (string == ".") {
-            integerDetector.state = PeriodState(integerDetector)
+            detector.state = PeriodState(detector)
         }else{
-            integerDetector.state = InvalidState(integerDetector)
+            detector.state = IntegerInvalidState(detector)
         }
     }
 }

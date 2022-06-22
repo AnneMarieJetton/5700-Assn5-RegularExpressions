@@ -3,12 +3,14 @@ package IntegerDetectorStates
 import Detector
 import State
 
-class ValidNumberState(detector: Detector) : State(detector) {
+class IntegerStartState(detector: Detector) : State(detector) {
     override val isAccepting: Boolean
-        get() = true
+        get() = false
 
     override fun consumeInput(string: String) {
-        if (string !in "0123456789") {
+        if (string in "123456789"){
+            detector.state = ValidNumberState(detector)
+        }else{
             detector.state = IntegerInvalidState(detector)
         }
     }

@@ -1,22 +1,20 @@
 package BinaryDetectorStates
 
-import Detectors.BinaryDetector
-import Detectors.IntegerDetector
-import IntegerDetectorStates.InvalidState
-import IntegerDetectorStates.ValidNumberState
+import Detector
+import IntegerDetectorStates.IntegerInvalidState
 import State
 
-class OneState(binaryDetector: BinaryDetector) : State(binaryDetector) {
+class OneState(detector: Detector) : State(detector) {
     override val isAccepting: Boolean
         get() = true
 
     override fun consumeInput(string: String) {
         if (string == "0"){
-            binaryDetector.state = ZeroState(binaryDetector)
+            detector.state = ZeroState(detector)
         }else if (string == "1"){
-            binaryDetector.state = OneState(binaryDetector)
+            detector.state = OneState(detector)
         } else {
-            binaryDetector.state = InvalidState(binaryDetector)
+            detector.state = IntegerInvalidState(detector)
         }
     }
 }
