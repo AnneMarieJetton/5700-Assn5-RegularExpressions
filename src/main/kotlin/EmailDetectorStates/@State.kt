@@ -1,4 +1,0 @@
-package EmailDetectorStates
-
-class `@State` {
-}
