@@ -11,7 +11,7 @@ class HasSpecialState (detector: Detector) : State(detector) {
         if (string in "ABCDEFGHIJKLMNOPQRSTUVWXYZ") {
             detector.state = HasBothState(detector)
         }else{
-            detector.state = CharState(detector)
+            detector.state = HasSpecialState(detector)
         }
     }
 }

@@ -1,6 +1,7 @@
 package EmailDetectorStates
 
 import Detector
+import IntegerDetectorStates.IntegerInvalidState
 import State
 
 class EmailStartState(detector: Detector) : State(detector) {
@@ -8,6 +9,10 @@ class EmailStartState(detector: Detector) : State(detector) {
         get() = false
 
     override fun consumeInput(string: String) {
-
+        if (string == "@ "){
+            detector.state = IntegerInvalidState(detector)
+        }else{
+            detector.state = PartOneState(detector)
+        }
     }
 }
